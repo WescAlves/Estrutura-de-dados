@@ -13,7 +13,7 @@ void criar_func(Funcionario *f){
     strcpy(f->nome,"");
     strcpy(f->cargo,"");
     f->salario = -1;
-}
+}	
 Funcionario preenche_func(){
     Funcionario f;
     printf("Informe o nome do Funcionario:");
@@ -59,9 +59,14 @@ int inserir(Lista *list,Funcionario f){
             }
             if(aux){
                 //Adicionando o funcionário no meio da lista
-                novo->prx = aux;
-                aux->ant = novo;
-                aux->ant->prx = novo;
+                if(aux->ant){
+					aux->ant->prx = novo;
+					aux->ant = novo;
+				}
+				else{
+					list->prim = novo;
+				}
+				novo->prx = aux;
                 novo->ant = aux->ant;
             }
             else{
