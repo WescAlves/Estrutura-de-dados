@@ -1,7 +1,7 @@
 //funcoes dedicadas a operacoes com lista
-
+#include <stdlib.h>
+#include <stdio.h>
 #include "lista.h"
-#include "funcionario.h"
 
 Lista* criar_Lista(){
 	Lista* lista = (Lista*) malloc(sizeof(Lista));

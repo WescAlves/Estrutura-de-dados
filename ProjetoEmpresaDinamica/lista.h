@@ -1,5 +1,5 @@
 //funcoes dedicadas a operacoes com lista
-
+#include <stdlib.h>
 typedef struct no{
 	struct no* anterior;
 	char nome[30];  //neste campo, implemente a estrutura de dados desejada. neste caso, funcionario.

@@ -1,6 +1,5 @@
+#include <stdio.h>
 #include "funcionario.h"
-#include "lista.h"
-
 No* localizar(No* no, char nome[50]){
 	if(no == NULL){
 		return NULL;
