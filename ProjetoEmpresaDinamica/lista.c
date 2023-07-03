@@ -1,5 +1,8 @@
 //funcoes dedicadas a operacoes com lista
 
+#include "lista.h"
+#include "funcionario.h"
+
 Lista* criar_Lista(){
 	Lista* lista = (Lista*) malloc(sizeof(Lista));
 	if (lista != NULL){

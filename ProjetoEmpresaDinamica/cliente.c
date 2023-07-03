@@ -3,6 +3,8 @@
 #include <stdlib.h>
  
 #include "lista.h"
+#include "funcionario.h"
+
 
 int menu(){
 	int opcao;

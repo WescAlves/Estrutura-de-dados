@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=3
+UnitCount=5
 
 [VersionInfo]
 Major=1
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit2]
-FileName=..\Empresa\Dinamica(funcionando)\lista.h
+FileName=funcionario.c
 CompileCpp=0
 Folder=
 Compile=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit1]
-FileName=..\Empresa\Dinamica(funcionando)\cliente.c
+FileName=funcionario.h
 CompileCpp=0
 Folder=
 Compile=1
@@ -71,7 +71,27 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=funcionario.h
+FileName=lista.c
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=lista.h
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit5]
+FileName=cliente.c
 CompileCpp=0
 Folder=
 Compile=1
