@@ -1,47 +1,12 @@
-//Programa para uma impressora
-//Fila de execução com prioridades (estática circular)
-/*
-    1- Direror
-    2- Coordenador
-    3- Funcionário 
-*/
-
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include "impressora.h"
 
-//tamanho da fila
 const int Tam = 3;
-
-//tipo Impressao
-typedef struct{
-    int priori;        //Quem vai imprimir
-    char conteudo[30];    //Conteudo a ser impresso
-}Imp;
-
-//tipo Fila
-typedef struct {
-    Imp **dado;   //vetor girante
-    int head;         //inicio
-    int tail;         //fim
-    int cheia;        //se está cheia
-    int vazia;        //se está vazia
-}Fila;
-
 
 //inicializa os valores dos campos da fila
 //cria e zera
-Fila* cria_fila(){
-    Fila *f = malloc(sizeof(Fila));
-    f->dado = calloc(Tam,sizeof(Imp));
-    f->tail = 0;
-    f->head = 0;
-    f->cheia = 0;
-    f->vazia = 1;
-    return f;
-}
 
-
-//cria e preenche um novo tipo Impressao
 Imp *cria_imp(){
     Imp *imp = malloc(sizeof(Imp));
 
@@ -58,6 +23,20 @@ Imp *cria_imp(){
     
     return imp;
 }
+//inicializa os valores dos campos da fila
+//cria e zera
+Fila* cria_fila(){
+    Fila *f = malloc(sizeof(Fila));
+    f->dado = calloc(Tam,sizeof(Imp));
+    f->tail = 0;
+    f->head = 0;
+    f->cheia = 0;
+    f->vazia = 1;
+    return f;
+}
+
+
+//cria e preenche um novo tipo Impressao
 
 
 //adiciona um novo elemento no fim da fila
@@ -154,60 +133,15 @@ void imprimir(Fila *f){
     }
     else{
         int k = f->head;
-        printf("\nInicio -> ");
+        printf("\n===========================\n\n");
         do{
-            printf("%d ",f->dado[k]->priori);
+            printf("Prioridade: %d \n Conteudo: %s",f->dado[k]->priori, f->dado[k]->conteudo);
             k++;
             if(k == Tam){
                 k = 0;
             }
+            printf("\n===========================\n");
         }while(k != f->tail);
-        printf("<- Fim\n");
-    }
-}
-
-
-void menu(){
-    printf("\n\tVetor Girante\n\n");
-    printf("[1]Adicionar\n");
-    printf("[2]Remover\n");
-    printf("[3]Imprimir\n");
-    printf("[4]Sair\n");
-}
-
-
-int main(){
-    int resp;
-    Imp *rem;
-    Fila *f1 = cria_fila();    //criando a nova fila
-    do{
-        //printf de teste dos pivôs e das flags
-        printf("\nvazia = %d\ncheia = %d\nhead = %d\ntail = %d\n",f1->vazia,f1->cheia,f1->head,f1->tail);
         
-        menu();
-        scanf("%d",&resp);
-        getchar();
-        switch(resp){
-            case 1:
-                push(f1);
-                imprimir(f1);
-                break;
-            case 2:
-                rem = pop(f1);
-                if(rem){    //se rem não for NULL
-                    printf("Removido:\n-Prioridade %d\n-Conteudo %s\n",rem->priori,rem->conteudo);
-                    imprimir(f1);
-                }
-                break;
-            case 3:
-                imprimir(f1);
-                break;
-            default:
-                if(resp != 4){
-                    printf("Informe uma Opcao Válida!\n");
-                }
-        }
-    }while(resp != 4);
-    
-    return 0;
+    }
 }
